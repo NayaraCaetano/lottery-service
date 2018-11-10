@@ -29,7 +29,7 @@ RUN adduser -Ds /bin/sh lottery && \
         /var/www/staticfiles \
         /var/log/lottery_service && \
     chown -R lottery:lottery \
-        /var/www/staticfiles \
+        /var/www \
         /var/log/lottery_service
 USER lottery
 
