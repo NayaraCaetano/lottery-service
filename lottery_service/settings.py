@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'raffle'
+
+    # Third party
+    'rest_framework',
+
+    # Project
+    'raffle',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +119,8 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.MultiPartParser',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 50  # Todo: Definir valor real
 }
 
 

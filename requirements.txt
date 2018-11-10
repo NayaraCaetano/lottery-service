@@ -7,3 +7,4 @@ dj-database-url
 djangorestframework
 pytest
 pytest-django
+model_mommy
