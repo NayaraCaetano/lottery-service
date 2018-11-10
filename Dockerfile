@@ -18,19 +18,20 @@ RUN apk add --no-cache \
     apk del .build-deps
 
 COPY entrypoint.sh /
-ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["source /entrypoint.sh"]
 
 # Add application data
 WORKDIR /var/www
 COPY . /var/www
 
 # Create non-privileged user
-RUN adduser -Ds /bin/sh loterry && \
+RUN adduser -Ds /bin/sh lottery && \
     mkdir -p \
         /var/www/staticfiles \
-        /var/log/loterry_service && \
-    chown -R loterry:loterry \
+        /var/log/lottery_service && \
+    chown -R lottery:lottery \
         /var/www/staticfiles \
-        /var/log/loterry_service
-USER loterry
+        /var/log/lottery_service
+USER lottery
+
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+CMD ["run"]
