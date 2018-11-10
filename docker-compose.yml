@@ -1,0 +1,29 @@
+version: "3"
+services:
+    lottery:
+        image: lottery-service
+        build:
+            context: .
+        volumes:
+            - .:/var/www
+        ports:
+            - 80:8000
+        links:
+            - "database:database"
+        environment:
+            # Django config
+            - SECRET_KEY=local-development-secret-key
+            - DEBUG=True
+            - BASE_URL=http://localhost
+    database:
+        image: postgres:alpine
+        ports:
+            - 5433:5432
+        environment:
+            POSTGRES_PASSWORD: postgres
+        volumes:
+            - database:/var/lib/postgresql/data
+        logging:
+            driver: none
+volumes:
+    database:
