@@ -8,3 +8,5 @@ djangorestframework
 pytest
 pytest-django
 model_mommy
+django-filter
+parameterized
